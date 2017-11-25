@@ -1,4 +1,8 @@
- //Cantidad de veces que se repite un numero
+   class Program
+    {
+        static void Main(string[] args)
+        {
+            //Cantidad de veces que se repite un numero
             int[] arr = new int[5] {1,1,3,1,5};
             //Console.WriteLine("Ingrese el numero a buscar");
             //string numero = Console.ReadLine();
@@ -29,3 +33,6 @@
             Console.WriteLine("Promedio: " + promedio);
 
             Console.ReadKey();
+
+        }
+    }

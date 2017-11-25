@@ -3,6 +3,7 @@
         public static string[] frutas = new string[4];
         public static int[] cantidades = new int[4];
         public static double[] precios = new double[4];
+        public static int numeroFactura = 1;
         static void Main(string[] args)
         {
             int opcion = 0;
@@ -13,6 +14,7 @@
                 Console.Write("Opcion:");
                 string eleccion = Console.ReadLine();
                 opcion = Convert.ToInt32(eleccion);
+                Console.Clear();
                 if (opcion == 1)
                 {
                     Console.WriteLine("Cargando inventario...");
@@ -23,9 +25,10 @@
                     int opcion2 = 0;
                     Console.WriteLine("Elija el producto a modificar: ");
                     ImprimirProductos();
+                    Console.Write("Opcion:");
                     string num = Console.ReadLine();
                     opcion2 = Convert.ToInt32(num);
-                    if (opcion2 < 4 || opcion2 >= 0)
+                    if (opcion2 < 4 && opcion2 >= 0)
                     {
                         Console.WriteLine("Cantidad de producto nueva: ");
                         string cantidad = Console.ReadLine();
@@ -40,6 +43,44 @@
                     Console.WriteLine("-----------Inventario----------");
                     ImprimirInventario();
                 }
+                else if (opcion == 4)
+                {
+                    int opcion2 = 0;
+                    double subtotal = 0;
+                    string[] productosVendidos = new string[4];
+                    int iterador = 0;
+                    int[] cantidadesVendidas = new int[4];
+                    while (opcion2 != 4)
+                    {
+                        Console.WriteLine("Elija el producto a vender: ");
+                        ImprimirProductos();
+                        Console.WriteLine("4) Salir");
+                        Console.Write("Opcion:");
+                        string num = Console.ReadLine();
+                        opcion2 = Convert.ToInt32(num);
+                        if (opcion2 < 4 && opcion2 >= 0)
+                        {
+                            Console.Write("Cantidad de producto: ");
+                            string cantidad = Console.ReadLine();
+                            int cant = Convert.ToInt32(cantidad);
+                            if (cant > cantidades[opcion2])
+                            {
+                                Console.WriteLine("No hay suficiente en inventario, la cantidad que hay es: " + cantidades[opcion2]);
+                            }
+                            else
+                            {
+                                productosVendidos[iterador] = frutas[opcion2];
+                                cantidadesVendidas[iterador] = cant;
+                                iterador++;
+                                cantidades[opcion2] -= cant;
+                                subtotal += (cant * precios[opcion2]);
+                            }
+                        }
+                    }
+
+                    ImprimirFactura(productosVendidos, cantidadesVendidas, subtotal, iterador);
+                   
+                }
                 else if (opcion == 5)
                 {
                     GuardarCambios("Inventario.txt");
@@ -47,6 +88,25 @@
             }
         }
 
+        public static void ImprimirFactura(string [] productosVendidos, int[] cantidadesVendidas, double subtotal, int iterador)
+        {
+            double impuesto = 0.15;
+            Console.Write("Ingrese el nombre del cliente: ");
+            string nombre = Console.ReadLine();
+            Console.WriteLine("------------Factura " + numeroFactura +" -------------");
+            Console.WriteLine("Cliente: " + nombre);
+            Console.WriteLine("Fecha: " + DateTime.Now);
+            for (int i = 0; i < iterador; i++)
+            {
+                Console.WriteLine("Producto: " + productosVendidos[i] + " Cantidad: " + cantidadesVendidas[i]);
+            }
+            Console.WriteLine("Subtotal: " + subtotal);
+            double impuestoCalculado = subtotal * impuesto;
+            Console.WriteLine("Impuesto: " + impuestoCalculado);
+            double total = subtotal + impuestoCalculado;
+            Console.WriteLine("Total: " + total);
+            numeroFactura++;
+        }
         public static void GuardarCambios(string nombreDeArchivo)
         {
             string contenidoArchivo = "";

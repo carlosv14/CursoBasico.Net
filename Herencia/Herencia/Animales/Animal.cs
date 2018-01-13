@@ -6,16 +6,9 @@ using System.Threading.Tasks;
 
 namespace Herencia.Animales
 {
-    public class Animal
+    public abstract class Animal
     {
-        public virtual string ObtenerNombre()
-        {
-            return "";
-        }
-
-        public virtual string ObtenerSonido()
-        {
-            return "";
-        }
+        public abstract string ObtenerNombre();
+        public abstract string ObtenerSonido();
     }
 }

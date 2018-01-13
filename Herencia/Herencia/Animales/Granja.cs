@@ -15,7 +15,6 @@ namespace Herencia.Animales
             this.Animales = new List<Animal>();
             this.Animales.Add(new Perro());
             this.Animales.Add(new Pollo());
-            this.Animales.Add(new Animal());
         }
 
         public void ImprimirAnimales()

@@ -44,8 +44,13 @@
   <ItemGroup>
     <Compile Include="Cuadrado.cs" />
     <Compile Include="Figura.cs" />
+    <Compile Include="Animales\Animal.cs" />
+    <Compile Include="Animales\Granja.cs" />
+    <Compile Include="Animales\Perro.cs" />
+    <Compile Include="Animales\Pollo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Triangulo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

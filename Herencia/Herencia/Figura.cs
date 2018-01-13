@@ -22,9 +22,13 @@ namespace Herencia
             return 0;
         }
 
+        public virtual string ObtenerNombre()
+        {
+            return "Figura";
+        }
         public virtual void Dibujar()
         {
-            Console.WriteLine("Dibujando figura en la posicion x= " + this.x + " y= " + this.y );
+            Console.WriteLine($"Dibujando {ObtenerNombre()} en la posicion x= " + this.x + " y= " + this.y );
         }
     }
 }

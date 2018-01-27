@@ -9,6 +9,6 @@ namespace Calculadora.Operaciones
     public interface ICalculable
     {
         void ImprimirOpciones();
-        double Calcular(int opcion, int izquierda, int derecha);
+        double Calcular(int opcion);
     }
 }

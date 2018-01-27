@@ -31,11 +31,8 @@ namespace Calculadora
                     calculadora.ImprimirOpciones();
                     Console.Write("Opcion: ");
                     int opcion = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("Ingrese primer numero: ");
-                    int izquierda = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("Ingrese segundo numero: ");
-                    int derecha = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine($"La resupuesta es: {calculadora.Calcular(opcion, izquierda, derecha)}");
+                   
+                    Console.WriteLine($"La resupuesta es: {calculadora.Calcular(opcion)}");
                 }
             }
             catch (Exception ex)

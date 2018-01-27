@@ -14,14 +14,22 @@ namespace Calculadora
             "Multiplicar",
             "Dividir"
         };
-        public double Calcular(int opcion, int izquierda, int derecha)
+        public double Calcular(int opcion)
         {
             switch (opcion)
             {
                 case 0:
+                    Console.Write("Ingrese primer numero: ");
+                    int izquierda = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Ingrese segundo numero: ");
+                    int derecha = Convert.ToInt32(Console.ReadLine());
                     Multiplicar multiplicacion = new Multiplicar(izquierda, derecha);
                     return multiplicacion.Operar();
                 case 1:
+                    Console.Write("Ingrese primer numero: ");
+                    izquierda = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Ingrese segundo numero: ");
+                    derecha = Convert.ToInt32(Console.ReadLine());
                     Dividir division = new Dividir(izquierda, derecha);
                     return division.Operar();
                 default:
